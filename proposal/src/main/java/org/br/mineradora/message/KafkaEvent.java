@@ -1,0 +1,22 @@
+package org.br.mineradora.message;
+
+import jakarta.enterprise.context.ApplicationScoped;
+import org.br.mineradora.dto.ProposalDTO;
+import org.eclipse.microprofile.reactive.messaging.Channel;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@ApplicationScoped
+public class KafkaEvent {
+    private final Logger LOG = LoggerFactory.getLogger(KafkaEvent.class);
+    @Channel("proposal-channel")
+    Emitter<ProposalDTO> proposalRequestEmitter;
+
+    public void sendNewKafkaEvent(ProposalDTO proposal){
+
+        LOG.info("-- Sending new proposal for Kafka Topics --");
+        proposalRequestEmitter.send(proposal).toCompletableFuture().join();
+    }
+
+}
