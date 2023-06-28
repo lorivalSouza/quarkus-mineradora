@@ -20,10 +20,6 @@ public class OpportunityDTO {
 
     private BigDecimal priceTonne;
 
-    private Integer tonnes;
-
-    private String country;
-
-    private Integer proposalValidityDays;
+    private BigDecimal lastDollarQuotation;
 
 }

@@ -19,4 +19,10 @@ public class ProposalDetailsDTO {
 
     private BigDecimal priceTonne;
 
+    private Integer tonnes;
+
+    private String country;
+
+    private Integer proposalValidityDays;
+
 }

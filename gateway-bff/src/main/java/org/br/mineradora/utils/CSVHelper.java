@@ -21,7 +21,7 @@ public class CSVHelper {
                 CSVPrinter csvPrinter = new CSVPrinter(new PrintWriter(out), format);){
             for(OpportunityDTO opps : opportunities){
                 List<String> data = Arrays.asList(String.valueOf(opps.getProposalId()), opps.getCustomer(), String.valueOf(opps.getPriceTonne()),
-                        String.valueOf(opps.getProposalValidityDays()));
+                        String.valueOf(opps.getLastDollarQuotation()));
 
                 csvPrinter.printRecord(data);
             }
